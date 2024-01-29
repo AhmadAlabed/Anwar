@@ -16,6 +16,7 @@
 }
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 body {
   background-color: var(--primary-bg-color);
@@ -29,6 +30,7 @@ body {
   left: 0;
   right: 0;
   z-index: 99;
+  background-color: rgba(41, 41, 41, 0.5);
 }
 .nav-inner {
   display: flex;
@@ -70,12 +72,72 @@ body {
   color: var(--secondary-font-color);
 }
 .nav-bars {
-  display: flex;
   align-items: center;
   font-size: 3rem;
   color: var(--secondary-font-color);
   cursor: pointer;
   display: none;
+  position: relative;
+}
+.nav-bars .close-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.nav-bars .bars-icon {
+  transition: opacity 0.3s;
+}
+
+.nav-bars:hover .close-icon {
+  opacity: 1;
+}
+.nav-bars:hover .bars-icon {
+  opacity: 0;
+}
+.side-menu {
+  display: none;
+  position: fixed;
+  top: 47px;
+  right: 0;
+  min-width: 265px;
+  background-color: var(--primary-bg-color);
+}
+.side-menu .logo {
+  padding-block: 2rem;
+  text-align: center;
+}
+.menu-link {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  color: var(--primary-font-color);
+  display: block;
+  width: 100%;
+  padding: 2rem;
+  border-top: 1px solid #3a3939;
+  border-bottom: 1px solid #292929;
+  transition: color 0.3s;
+}
+.menu-link:hover {
+  color: var(--secondary-font-color);
+}
+.nav-bars:hover .side-menu {
+  display: block;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-bars {
+    display: flex;
+  }
+}
+@media (max-width: 576px) {
 }
 /*--------------------------------------------------------------
 # Header 
@@ -87,6 +149,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
+  position: relative;
 }
 .header .container {
   height: 100%;
@@ -104,6 +168,19 @@ body {
 }
 .header-text p {
   margin-bottom: 6rem;
+}
+.discover {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  color: var(--tertiary-font-color);
+  line-height: 1.8;
+  font-weight: 400;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
 }
 /*--------------------------------------------------------------
 # about 
@@ -227,10 +304,6 @@ address > div:not(:last-child) .address-icon:after {
 @media (max-width: 992px) {
   .about-inner {
     flex-direction: column;
-  }
-}
-@media (max-width: 768px) {
-  .about-inner {
   }
 }
 /*--------------------------------------------------------------
@@ -797,58 +870,128 @@ address > div:not(:last-child) .address-icon:after {
 .blog .section-title {
   margin-bottom: 6rem;
 }
-
-/* 
-------------------
-------------- */
-/* 
-------------------
-------------- */
-/* 
-------------------
-------------- */
-/* 
-------------------
-------------- */
-/* 
-------------------
-------------- */
-/* 
-------------------
-------------- */
-/* 
-------------------
-------------- */
-/* 
-------------------
-------------- */
-
-.input-data {
+.post {
+  display: flex;
+  margin-bottom: 2rem;
+}
+.post-img {
+  flex-basis: 40%;
+  overflow: hidden;
+}
+.post-txt {
+  flex-basis: 60%;
+  padding: 2rem 2rem 7.8rem 2rem;
   position: relative;
-  /* background-color: #f39393; */
-  border-bottom: 1px solid red;
 }
-.input-data label {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--primary-font-color);
-  color: cadetblue;
+.post-img img {
+  opacity: 0.6;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s;
+}
+.post-img:hover img {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.post-header {
+  border-bottom: 1px solid #3a3939;
+  margin-bottom: 1rem;
+}
+.post-header p {
+  margin-bottom: 1rem;
+}
+.post-body p {
+  text-overflow: ellipsis;
+}
+.post-footer {
   position: absolute;
-  bottom: 7px;
-  left: 6px;
-  pointer-events: none;
-  transition: transform 0.3s, font-size 0.3s;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem 1.5rem;
+  background-color: var(--secondary-bg-color);
 }
-.input-data input:focus ~ label,
-.input-data input:valid ~ label {
-  transform: translateY(-22px);
-  font-size: 1rem;
+.read-more {
+  color: var(--primary-font-color);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: color 0.3s;
 }
-/* ----------- nav-menu-wide start ----------- */
+.read-more:hover {
+  color: var(--secondary-font-color);
+}
 
-/* ----------- nav-menu-wide end ----------- */
-
+@media (max-width: 768px) {
+  .post {
+    flex-direction: column;
+  }
+}
 /*--------------------------------------------------------------
-# Header 
+# contact 
 --------------------------------------------------------------*/
+.contact {
+  background-color: var(--secondary-bg-color);
+}
+.contact .section-title {
+  margin-bottom: 6rem;
+}
+.contact .h2--style span {
+  background-color: var(--secondary-bg-color);
+}
+.contact-inner {
+  display: flex;
+  gap: 3rem;
+}
+.contact-info {
+  flex-basis: calc(35% - 3rem);
+  padding: 2rem;
+  text-align: center;
+}
+.contact-info > div {
+  margin-block: 2rem;
+}
+.contact-message {
+  flex-basis: calc(65% - 3rem);
+  padding: 2rem;
+}
+@media (max-width: 768px) {
+  .contact-inner {
+    flex-direction: column;
+  }
+}
+/*--------------------------------------------------------------
+# footer 
+--------------------------------------------------------------*/
+.footer {
+  text-align: center;
+  padding: 4rem 0;
+}
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  color: var(--primary-font-color);
+  transition: background-color 0.3s;
+  margin-bottom: 1rem;
+}
+.social-link:hover {
+  background-color: var(--tertiary-bg-color);
+}
+.copy-right a {
+  color: var(--secondary-font-color);
+}

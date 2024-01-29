@@ -1,0 +1,169 @@
+.header .header-text p {
+  width: fit-content;
+  position: relative;
+}
+.header .header-text p::after {
+  content: "";
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.2rem;
+  color: var(--secondary-font-color);
+  text-transform: capitalize;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1;
+
+  position: absolute;
+  left: 103%;
+  animation: reverse 6s typed infinite;
+}
+@media (max-width: 768px) {
+  .header .header-text p::after {
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 576px) {
+  .header .header-text p::after {
+    font-size: 1.8rem;
+  }
+}
+@keyframes typed {
+  0% {
+    content: "D";
+  }
+  2% {
+    content: "De";
+  }
+  4% {
+    content: "Des";
+  }
+  6% {
+    content: "Desi";
+  }
+  8% {
+    content: "Desig";
+  }
+  10% {
+    content: "Design";
+  }
+  12% {
+    content: "Designe";
+  }
+  14% {
+    content: "Designer.";
+  }
+  16% {
+    content: "Designer.";
+  }
+  18% {
+    content: "Designer.";
+  }
+  20% {
+    content: "Designe";
+  }
+  22% {
+    content: "Design";
+  }
+  24% {
+    content: "Desig";
+  }
+  26% {
+    content: "Desi";
+  }
+  28% {
+    content: "Des";
+  }
+  30% {
+    content: "De";
+  }
+  32% {
+    content: "D";
+  }
+  34% {
+    content: "D";
+  }
+  36% {
+    content: "";
+  }
+  38% {
+    content: "";
+  }
+  40% {
+    content: "D";
+  }
+  42% {
+    content: "De";
+  }
+  44% {
+    content: "Dev";
+  }
+  48% {
+    content: "Deve";
+  }
+  50% {
+    content: "Devel";
+  }
+  52% {
+    content: "Develo";
+  }
+  54% {
+    content: "Develop";
+  }
+  56% {
+    content: "Developer.";
+  }
+  58% {
+    content: "Developer.";
+  }
+  60% {
+    content: "Developer.";
+  }
+  62% {
+    content: "Develop";
+  }
+  64% {
+    content: "Develo";
+  }
+  66% {
+    content: "Devel";
+  }
+  68% {
+    content: "Deve";
+  }
+  70% {
+    content: "Dev";
+  }
+  72% {
+    content: "De";
+  }
+  74% {
+    content: "D";
+  }
+  76% {
+    content: "D";
+  }
+  78% {
+    content: "D";
+  }
+  80% {
+    content: "";
+  }
+  82% {
+    content: "";
+  }
+}
+
+.discover i {
+  animation: reverse 1.4s downMove infinite;
+}
+
+@keyframes downMove {
+  0% {
+    transform: translateX(0px);
+  }
+  60% {
+    transform: translateX(-8px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}

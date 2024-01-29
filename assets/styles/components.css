@@ -14,17 +14,9 @@
 /*--------------------------------------------------------------
 # Container
 --------------------------------------------------------------*/
-/* .container {
-  margin: 0 auto;
-  padding: 0 30px;
-  max-width: 1320px;
-}
-.container-fluid {
-  padding: 0 3rem;
-} */
 .container {
   margin: 0 auto;
-  /* padding: 0 1.5rem; */
+  padding: 0 1.5rem;
 }
 .container-fluid {
   padding: 0 3rem;
@@ -89,7 +81,7 @@
 }
 @media (max-width: 576px) {
   .h1--style {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
 }
 /*--------------------------------------------------------------
@@ -103,6 +95,16 @@
   font-weight: 600;
   letter-spacing: 0.7px;
   line-height: 1;
+}
+@media (max-width: 768px) {
+  .h2--style {
+    font-size: 2.6rem;
+  }
+}
+@media (max-width: 576px) {
+  .h2--style {
+    font-size: 2.2rem;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -173,6 +175,7 @@
   border: none;
   position: relative;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .btn::after {
@@ -198,6 +201,10 @@
   height: 48px;
   width: 175px;
 }
+.btn--lg {
+  height: 48px;
+  width: 100%;
+}
 .btn span {
   position: absolute;
   top: 50%;
@@ -214,9 +221,7 @@
 /*--------------------------------------------------------------
 # section-title
 --------------------------------------------------------------*/
-.section-title {
-  /* background-color: #c2c0c3; */
-}
+
 .section-title h2 {
   width: fit-content;
   padding-bottom: 1.5rem;
@@ -246,6 +251,7 @@
   letter-spacing: 0.3px;
   z-index: 1;
 }
+
 /*--------------------------------------------------------------
 # box-label
 --------------------------------------------------------------*/
@@ -351,7 +357,7 @@
 .circle-label--lg {
   height: 4rem;
   border-radius: 2rem;
-  width: 30.15rem;
+  width: 100%;
 }
 .circle-label .circle-label-icon {
   position: absolute;
@@ -377,9 +383,7 @@
 .circle-label--md span {
   margin-left: 4rem;
 }
-.circle-label--lg span {
-  /* margin-left: 2rem; */
-}
+
 /*--------------------------------------------------------------
 # caret-down
 --------------------------------------------------------------*/
@@ -395,7 +399,7 @@
   border-right: 12px solid transparent;
 }
 /*--------------------------------------------------------------
-# input--reset
+# input--reset  input--style label--style wrapper
 --------------------------------------------------------------*/
 .input--reset {
   display: block;
@@ -405,20 +409,75 @@
   outline: none;
   box-shadow: none;
   background-color: transparent;
-  /* background-color: #16c0f0; */
 }
-/*--------------------------------------------------------------
-# input--style
---------------------------------------------------------------*/
-.input--style {
-  border-bottom: 1px solid red;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--primary-font-color);
-  padding: 0.6rem;
+.wrapper {
+  padding-block: 18px;
+  margin-bottom: 2rem;
+}
+.input-data {
+  position: relative;
+  border-bottom: 1px solid var(--gray-color);
 }
 
+.input--style,
+.label--style {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--primary-font-color);
+}
+.input-data .input {
+  position: relative;
+  padding: 6px;
+  /* background-color: #16c0f0; */
+}
+.border-bottom-focus {
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: var(--tertiary-bg-color);
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  right: 0;
+  z-index: 1;
+  transition: all 1s;
+}
+.input:focus ~ .border-bottom-focus {
+  width: 100%;
+}
+
+.input-data .label {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.input-data .input:not(:placeholder-shown) ~ .label,
+.input-data .input:focus ~ .label,
+.input-data .input:valid ~ .label {
+  transform: translate(-6px, -22px);
+  font-size: 1.2rem;
+  color: var(--secondary-font-color);
+}
+/*--------------------------------------------------------------
+# back-top
+--------------------------------------------------------------*/
+.back-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--tertiary-bg-color);
+  color: var(--primary-font-color);
+  font-size: 2rem;
+  border-radius: 50%;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+}
 /*--------------------------------------------------------------
 # breakpoints
 --------------------------------------------------------------*/
