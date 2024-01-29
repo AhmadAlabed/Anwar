@@ -1,3 +1,4 @@
 # Pure HTML CSS Template
 
-#### Created by **Eng. Ahmad Alabed**
+## View Project
+⚡ [View Live Demo](https://ahmadalabed.github.io/Anwar/)
